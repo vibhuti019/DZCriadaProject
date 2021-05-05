@@ -14,11 +14,17 @@
 
           // Create connection
           $this->conn = new mysqli($servername, $username, $password, $dbName);
+
+          echo var_dump($this);
+          die();          
           
           // Check connection
           if ($this->conn->connect_error) {
             die(json_encode(['Error Connection' => $this->conn->connect_error]));
           }
+
+          echo var_dump($this);
+
         
         }
 
@@ -28,9 +34,7 @@
           
           $result = $this->conn->query($query);
 
-          // echo var_dump($result);
-          // echo var_dump($this);
-
+          
           return $result;
       
         }
