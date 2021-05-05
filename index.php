@@ -54,6 +54,7 @@
     
             default:
                 $requestHandler->setRequestResponse("Error","Invaild path");
+                die();
         }
     }
     elseif(preg_match("/drivercompany/i", $requestedPath)){
@@ -75,6 +76,7 @@
                 break;
             default:
                 $requestHandler->setRequestResponse("Error","Invaild path");
+                die();
         }
     }
     elseif(preg_match("/user/i", $requestedPath)){
@@ -101,10 +103,12 @@
     
             default:
                 $requestHandler->setRequestResponse("Error","Invaild path");
+                die();
         }
     }
     else{
         $requestHandler->setRequestResponse("Error","Invaild path");
+        die();
     }
 
     switch($requestedPath){
@@ -142,7 +146,10 @@
 
         default:
             $requestHandler->setRequestResponse("Error","Invaild path");
+            die();
     }
+    $requestHandler->setRequestResponse("Error","Invaild path");
+    die();
 
 
 
