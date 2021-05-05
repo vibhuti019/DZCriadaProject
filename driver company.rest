@@ -1,0 +1,40 @@
+######
+GET https://localhost:8000/drivercompany-login
+Content-Type: application/json
+
+{
+    "driverCompanyMobile" : "9876543210",
+    "password" : "New Password" 
+}
+
+
+######
+GET https://localhost:8000/drivercompany-register
+Content-Type: application/json
+
+{
+    "driverCompanyName" : "New Name",
+    "driverCompanyEmail" : "mail@mail.com",
+    "driverCompanyMobile" : "9876543210",
+    "password" : "New Password"
+}
+
+######
+GET https://localhost:8000/drivercompany-forgot-password
+Content-Type: application/json
+
+{
+    "driverCompanyPhone" : "9876543210"
+}
+
+
+######
+GET https://localhost:8000/drivercompany-forgot-password
+Content-Type: application/json
+Auth: {Token} 
+
+{
+    "driverCompanyEmail" : "mail@mail.com"
+}
+
+

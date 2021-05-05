@@ -1,0 +1,8 @@
+####
+GET http://localhost:8000/RequestsHandler.php
+Auth: e2drdWjNOdSz2kh5UZf4n2d4sxvXfH0MnQkH4xpvlHTPFYTVgImKPi1Bw2PV87m1jeynNCYTzsIFkNlqKpjXFPzHxNw90tWe5yYoWPGRf\/I=
+Content-Type: application/json
+
+{
+    "Hello" : "World1"
+}
