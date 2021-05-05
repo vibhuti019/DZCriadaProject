@@ -10,7 +10,7 @@
           $servername = "localhost";
           $username = "root";
           $password = "root";
-          $dbName = "DZ-Criada";
+          $dbName = "DZCriada";
 
           // Create connection
           $this->conn = new mysqli($servername, $username, $password, $dbName);
