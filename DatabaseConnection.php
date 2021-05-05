@@ -8,7 +8,7 @@
         function __construct(){
           //Environment Values
           $servername = "localhost";
-          $username = "root";
+          $username = "vibhuti";
           $password = "root";
           $dbName = "DZCriada";
 
