@@ -5,35 +5,47 @@
         die('FALSE');
     }
 
-    include_once('./Chat.php');
-    include_once('./DatabaseConnection.php');
-    include_once('./Jobs.php');
-    include_once('./RequestsHandler.php');
-    include_once('./Service.php');
-    include_once('./Transaction.php');
 
-    $query = new Query();
-    $requestHandler = new RequestHandler($query);
+    include_once('./driverApi.php');
+    include_once('./customerApi.php');
+    include_once('./driverCompanyApi.php');
+
+    $bodyOfRequest = file_get_contents('php://input');
+    $arrayOfJSON = json_decode($bodyOfRequest, true);
     
-    $requestedPath = $requestHandler->getPath();
+    if(isset($_SERVER["HTTP_AUTH"])){
+        $authHeader =  $_SERVER["HTTP_AUTH"];
+    }else{
+        $authHeader = "NO AUTH";
+    }
+    
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+    $path = explode('/',$_SERVER['PATH_INFO']);
+    $requestedPath = $path[1];
+    
+    
     if(preg_match("/driver/i", $requestedPath)){
-        $driver = new DriverRequest($requestHandler,$query);
         switch($requestedPath){
             case "driver-register":
-                $driver->registerUser();
+                echo driverRegister($arrayOfJSON);
+                die();
                 break;
     
             case "driver-login":
-    
+                echo driverLogin($arrayOfJson['driverMobile'],$arrayOfJson['driverPassword']);
+                die();
                 break;
     
+            
             case "driver-forgot-password":
-    
+
                 break;
     
             case "driver-details":
-    
+                echo driverDetails();
                 break;
     
             case "driver-available-jobs":
@@ -53,7 +65,6 @@
                 break;
     
             default:
-                $requestHandler->setRequestResponse("Error","Invaild path");
                 die();
         }
     }
@@ -75,11 +86,10 @@
 
                 break;
             default:
-                $requestHandler->setRequestResponse("Error","Invaild path");
                 die();
         }
     }
-    elseif(preg_match("/user/i", $requestedPath)){
+    elseif(preg_match("/customer/i", $requestedPath)){
         switch($requestedPath){
             case "customer-register":
     
@@ -102,12 +112,10 @@
                 break;
     
             default:
-                $requestHandler->setRequestResponse("Error","Invaild path");
                 die();
         }
     }
     else{
-        $requestHandler->setRequestResponse("Error","Invaild path");
         die();
     }
 
@@ -145,10 +153,8 @@
             break;
 
         default:
-            $requestHandler->setRequestResponse("Error","Invaild path");
             die();
     }
-    $requestHandler->setRequestResponse("Error","Invaild path");
     die();
 
 

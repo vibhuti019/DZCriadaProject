@@ -1,0 +1,16 @@
+GET http://127.0.0.1:800/driver-register
+Content-Type: application/json
+
+{
+    "driverMobile" : "864658768",
+    "driverPassword" : "Password",
+    "driverConfirmPassword" : "Password",
+    "driverName" : "RobertSoCool",
+    "driverMobile" : "989496843",
+    "driverPicture" : "[ FILE ]",
+    "driverEmail" : "robert@cool.com",
+    "driverNRIC" : "58568468",
+    "driverVehicleType" : "Bike (Weight < 8KG)",
+    "driverVehicleNumber" : "MH5C848",
+}
+
