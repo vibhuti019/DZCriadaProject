@@ -3,7 +3,7 @@
     include_once('./databaseConnection.php');
 
 
-    function encryptPassword($password){
+    function encrypt($password){
         $encryptedPassword = md5($password);
         $chopEncryptedPassword = substr($encryptedPassword, 0, 8);
         $sendToDatabase = md5($chopEncryptedPassword);
@@ -23,14 +23,14 @@
         $driverVehicleNumber = $arrayOfJson["driverVehicleNumber"];
 
         if($driverPassword == $driverConfirmPassword){
-            $driverPassword = encryptPassword($driverPassword);
+            $driverPassword = encrypt($driverPassword);
         }else {
-            die('TRUE');
+            return false;
         }
 
         $sql = "INSERT INTO `DriverDetails` (`name`, `email`, `mobile`, `password`, `picture`, `NRIC`, `vehicleType`, `vehicleNumber`) VALUES ('".$driverName."', '".$driverEmail."', '".$driverMobile."', '".$driverPassword."', '".$driverPicture."', '".$driverNRIC."', '".$driverVehicleType."', '".$driverVehicleNumber."');";
 
-        $result = executeQuery($sql);
+        executeQuery($sql);
         
         $token = md5($driverEmail);
         
@@ -46,43 +46,160 @@
     }
 
 
-    function driverLogin($driverMobile,$driverPassword ){
+    function driverLogin($arrayOfJson){
 
-        $driverPassword = encryptPassword($driverPassword);
+        $driverMobile = $arrayOfJson["driverMobile"];
+        $driverPassword = $arrayOfJson["driverPassword"];
 
-        $sql = "SELECT * FROM `DriverDetails` WHERE email= 'mail@mail.com';";
+        $driverPassword = encrypt($driverPassword);
+
+
+        $sql = "SELECT * FROM `DriverDetails` WHERE mobile= '".$driverMobile."';";
+
+        
+        $result = executeQuery($sql);
+
+        
+        if($row = $result->fetch_assoc()){
+            $array["driverId"] = $row["id"];
+            $array["driverName"] = $row["name"]; 
+            $array["driverMobile"] = $row["mobile"];        
+            $password = $row["password"];
+            $array["driverMail"] = $row["email"];
+            if($driverPassword == $password){
+                $array["token"] = encrypt($array["email"]);
+                $response["Data"] = $array;
+                return json_encode($response);
+            }
+        }
+
+        return false;
+        
+    }
+
+    function driverDetails($authToken, $arrayOfJson){
+        $id = $arrayOfJson["driverId"];
+
+        $sql = "SELECT * FROM `DriverDetails` WHERE mobile= '".$id."';";
 
         $result = executeQuery($sql);
 
-        return $result;
+        if($row = $result->fetch_assoc()){
+            $array["driverId"] = $row["id"];
+            $array["driverName"] = $row["name"]; 
+            $array["driverMobile"] = $row["mobile"];        
+            $password = $row["password"];
+            $array["driverMail"] = $row["email"];
+            if(encrypt($array["driverMail"]) == $authToken){
+                $response["Data"] = $array;
+                return json_encode($response);
+            }
+        }
+
+        return false;
+    }
+
+
+    function driverAvailableJobs($authToken,$arrayOfJson){
+        $id = $arrayOfJson["driverId"];
+
+        $sql = "SELECT * FROM `Jobs` WHERE status= 'Booked';";
+
+        $result = executeQuery($sql);
+
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["jobId"] = $row["jobId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["deliveryTime"] = $row["deliveryTime"];        
+            $array["dropOffLocation"] = $row["dropOffLocation"];        
+            $array["pickupLocation"] = $row["pickupLocation"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];        
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
+
+        $response["Data"] = $responseData;
         
-    }
-
-    function driverDetails(){
-
+        return json_encode($response);
     }
 
 
-    function driverAvailableJobs(){
+    function driverActiveJobs($arrayOfJson){
+        $id = $arrayOfJson["driverId"];
 
-    }
+        $sql = "SELECT * FROM `Jobs` WHERE status= 'Assigned' AND assignedDriver='".$id."';";
 
+        $result = executeQuery($sql);
 
-    function driverActiveJobs(){
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["jobId"] = $row["jobId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["deliveryTime"] = $row["deliveryTime"];        
+            $array["dropOffLocation"] = $row["dropOffLocation"];        
+            $array["pickupLocation"] = $row["pickupLocation"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];        
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
 
-    }
-
-    function driverHistoryJobs(){
-
-
-    }
-
-    function driverJobDetail(){
-
-    }
-
-
-    function verifyDriverAuth(){
+        $response["Data"] = $responseData;
         
+        return json_encode($response);
+    
     }
+
+    function driverHistoryJobs($arrayOfJson){
+        $id = $arrayOfJson["driverId"];
+
+        $sql = "SELECT * FROM `Jobs` WHERE status= 'Done' AND assignedDriver='".$id."';";
+
+        $result = executeQuery($sql);
+
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["jobId"] = $row["jobId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["deliveryTime"] = $row["deliveryTime"];        
+            $array["dropOffLocation"] = $row["dropOffLocation"];        
+            $array["pickupLocation"] = $row["pickupLocation"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];        
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
+
+        $response["Data"] = $responseData;
+        
+        return json_encode($response);
+    
+
+    }
+
+    function driverJobDetail($arrayOfJson){
+        $id = $arrayOfJson["driverId"];
+
+        $sql = "SELECT * FROM `Jobs` WHERE assignedDriver='".$id."';";
+
+        $result = executeQuery($sql);
+
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["jobId"] = $row["jobId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["deliveryTime"] = $row["deliveryTime"];        
+            $array["dropOffLocation"] = $row["dropOffLocation"];        
+            $array["pickupLocation"] = $row["pickupLocation"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];        
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
+
+        $response["Data"] = $responseData;
+        
+        return json_encode($response);
+    
+    }
+
+
 ?>

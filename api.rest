@@ -11,6 +11,119 @@ Content-Type: application/json
     "driverEmail" : "robert@cool.com",
     "driverNRIC" : "58568468",
     "driverVehicleType" : "Bike (Weight < 8KG)",
-    "driverVehicleNumber" : "MH5C848",
+    "driverVehicleNumber" : "MH5C848"
 }
 
+####
+GET http://127.0.0.1:800/driver-login
+Content-Type: application/json
+
+{
+    "driverMobile" : "989496843",
+    "driverPassword" : "Password"
+}
+
+####
+GET http://127.0.0.1:800/driver-details
+Content-Type: application/json
+
+{
+    "driverId" : "989496843"
+}
+
+####
+GET http://127.0.0.1:800/driver-available-jobs
+Content-Type: application/json
+
+{
+    "driverId" : "989496843"
+}
+
+####
+GET http://127.0.0.1:800/driver-active-jobs
+Content-Type: application/json
+
+{
+    "driverId" : "989496843"
+}
+
+####
+GET http://127.0.0.1:800/driver-history-jobs
+Content-Type: application/json
+
+{
+    "driverId" : "989496843"
+}
+
+####
+GET http://127.0.0.1:800/driver-job-details
+Content-Type: application/json
+
+{
+    "driverId" : "989496843"
+}
+
+####
+GET http://127.0.0.1:800/customer-register
+Content-Type: application/json
+
+{
+    "customerMobile" : "9876543210",
+    "customerPassword" : "Password",
+    "customerConfirmPassword": "Password",
+    "customerName" : "Name Name",
+    "customerEmail" : "mail@mail.com"
+}
+
+####
+GET http://127.0.0.1:800/customer-login
+Content-Type: application/json
+
+{
+    "customerMobile" : "9876543210",
+    "customerPassword" : "Password"
+}
+
+
+#####
+GET http://127.0.0.1:800/customer-create-job
+Content-Type: application/json
+
+{
+    "customerName" : "Melisa Tan",
+    "customerMobile" : "989496843",
+    "deliveryTime" : "31 Aug 12:20PM",
+    "dropOffLocation" : "Toa Poyah",
+    "dropUnitNumber" : "04-123",
+    "pickupLocation" : "Potang Pasir",
+    "pickupUnitNumber" : "04-123",
+    "requiredVehicle" : "Bike, (Weight < 8kg)",
+    "priceOfDelivery" : "400",
+    "scheduleDelivery" : false,
+    "scheduleDate" : "Today (29th Aug)",
+    "scheduleTime" : "11:10 AM",
+    "driverNotes" : "TextField",
+    "paymentMode" : "Wallet",
+    "paymentId" : "id"
+}
+
+####
+GET http://127.0.0.1:800/driver-available-jobs
+
+{
+    "driverId" : "1234"
+}
+
+####
+GET http://127.0.0.1:800/driver-active-jobs
+
+{
+    "driverId" : "1234"
+}
+
+####
+GET http://127.0.0.1:800/driver-history-jobs
+
+{
+    "driverId" : "1234"
+}

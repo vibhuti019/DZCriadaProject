@@ -8,7 +8,7 @@
 
     include_once('./driverApi.php');
     include_once('./customerApi.php');
-    include_once('./driverCompanyApi.php');
+    include_once('./companyApi.php');
 
     $bodyOfRequest = file_get_contents('php://input');
     $arrayOfJSON = json_decode($bodyOfRequest, true);
@@ -35,7 +35,7 @@
                 break;
     
             case "driver-login":
-                echo driverLogin($arrayOfJson['driverMobile'],$arrayOfJson['driverPassword']);
+                echo driverLogin($arrayOfJSON);
                 die();
                 break;
     
@@ -45,23 +45,23 @@
                 break;
     
             case "driver-details":
-                echo driverDetails();
+                echo driverDetails($authHeader,$arrayOfJson);
                 break;
     
             case "driver-available-jobs":
-    
+                echo driverAvailableJobs($authHeader,$arrayOfJSON);
                 break;
     
             case "driver-active-jobs":
-    
+                echo driverActiveJobs($arrayOfJSON);
                 break;
     
             case "driver-history-jobs":
-    
+                echo driverHistoryJobs($arrayOfJSON);
                 break;
     
             case "driver-job-details":
-    
+                echo driverJobDetail($arrayOfJSON);
                 break;
     
             default:
@@ -92,11 +92,11 @@
     elseif(preg_match("/customer/i", $requestedPath)){
         switch($requestedPath){
             case "customer-register":
-    
+                echo customerRegister($arrayOfJSON);
                 break;
     
             case "customer-login":
-    
+                echo customerLogin($arrayOfJSON);
                 break;
     
             case "customer-forgot-password":
@@ -104,11 +104,11 @@
                 break;
     
             case "customer-details":
-    
+                echo customerDetail($authHeader,$arrayOfJSON);
                 break;
     
-            case "customer-place-order":
-    
+            case "customer-create-job":
+                echo customerCreateJobs($arrayOfJSON);
                 break;
     
             default:
@@ -119,63 +119,5 @@
         die();
     }
 
-    switch($requestedPath){
-        case "driver-register":
-
-            break;
-
-        case "driver-login":
-
-            break;
-
-        case "driver-forgot-password":
-
-            break;
-
-        case "driver-details":
-
-            break;
-
-        case "driver-available-jobs":
-
-            break;
-
-        case "driver-active-jobs":
-
-            break;
-
-        case "driver-history-jobs":
-
-            break;
-
-        case "driver-job-details":
-
-            break;
-
-        default:
-            die();
-    }
     die();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    $response = $requestHandler->getBodyOfRequest();
-    $requestHandler->setRequestResponse("Auth",$requestHandler->getAuthHeader());
-    $requestHandler->setRequestResponse("UserRole",$requestHandler->requstingUserRole());
-    $requestHandler->setRequestResponse("UserToken",$requestHandler->getAuthHeader());
-
-    
-
 ?>

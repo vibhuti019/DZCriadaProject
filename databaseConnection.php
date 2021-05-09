@@ -4,7 +4,7 @@
     //Execute query
     function executeQuery($query){
 
-        //Environment Values
+        // Environment Values
         $serverName = "localhost";
         $userName = "root";
         $password = "root";
@@ -19,8 +19,8 @@
         }
 
         $result = $conn->query($query);
-        echo var_dump($conn);
-
+        
+        // var_dump($conn);
         return $result;
      
     }
