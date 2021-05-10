@@ -67,7 +67,7 @@
             $password = $row["password"];
             $array["driverMail"] = $row["email"];
             if($driverPassword == $password){
-                $array["token"] = encrypt($array["email"]);
+                $array["token"] = encrypt($array["driverMail"]);
                 $response["Data"] = $array;
                 return json_encode($response);
             }
@@ -131,6 +131,8 @@
         $sql = "SELECT * FROM `Jobs` WHERE status= 'Assigned' AND assignedDriver='".$id."';";
 
         $result = executeQuery($sql);
+        $array = 0;
+        $responseData = 0;
 
         $i =0;
         while($row = $result->fetch_assoc()){
@@ -156,6 +158,8 @@
         $sql = "SELECT * FROM `Jobs` WHERE status= 'Done' AND assignedDriver='".$id."';";
 
         $result = executeQuery($sql);
+        $array = 0;
+        $responseData = 0;
 
         $i =0;
         while($row = $result->fetch_assoc()){
@@ -182,6 +186,9 @@
         $sql = "SELECT * FROM `Jobs` WHERE assignedDriver='".$id."';";
 
         $result = executeQuery($sql);
+        $array = 0;
+        $responseData = 0;
+
 
         $i =0;
         while($row = $result->fetch_assoc()){

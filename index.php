@@ -45,7 +45,7 @@
                 break;
     
             case "driver-details":
-                echo driverDetails($authHeader,$arrayOfJson);
+                echo driverDetails($authHeader,$arrayOfJSON);
                 break;
     
             case "driver-available-jobs":

@@ -64,7 +64,7 @@
             $password = $row["customerPassword"];
             $array["customerMail"] = $row["customerEmail"];
             if($customerPassword == $password){
-                $array["token"] = encrypt($array["customerEmail"]);
+                $array["token"] = encrypt($array["customerMail"]);
                 $response["Data"] = $array;
                 return json_encode($response);
             }else{

@@ -1,4 +1,4 @@
-GET http://127.0.0.1:800/driver-register
+GET http://127.0.0.1:8000/driver-register
 Content-Type: application/json
 
 {
@@ -15,7 +15,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:800/driver-login
+GET http://127.0.0.1:8000/driver-login
 Content-Type: application/json
 
 {
@@ -24,47 +24,51 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:800/driver-details
+GET http://127.0.0.1:8000/driver-details
 Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
 
 {
     "driverId" : "989496843"
 }
 
 ####
-GET http://127.0.0.1:800/driver-available-jobs
+GET http://127.0.0.1:8000/driver-available-jobs
 Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
 
 {
-    "driverId" : "989496843"
+    "driverId" : "3"
 }
 
 ####
-GET http://127.0.0.1:800/driver-active-jobs
+GET http://127.0.0.1:8000/driver-active-jobs
 Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
+
 
 {
-    "driverId" : "989496843"
+    "driverId" : "3"
 }
 
 ####
-GET http://127.0.0.1:800/driver-history-jobs
+GET http://127.0.0.1:8000/driver-history-jobs
 Content-Type: application/json
 
 {
-    "driverId" : "989496843"
+    "driverId" : "3"
 }
 
 ####
-GET http://127.0.0.1:800/driver-job-details
+GET http://127.0.0.1:8000/driver-job-details
 Content-Type: application/json
 
 {
-    "driverId" : "989496843"
+    "driverId" : "3"
 }
 
 ####
-GET http://127.0.0.1:800/customer-register
+GET http://127.0.0.1:8000/customer-register
 Content-Type: application/json
 
 {
@@ -76,7 +80,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:800/customer-login
+GET http://127.0.0.1:8000/customer-login
 Content-Type: application/json
 
 {
@@ -86,7 +90,7 @@ Content-Type: application/json
 
 
 #####
-GET http://127.0.0.1:800/customer-create-job
+GET http://127.0.0.1:8000/customer-create-job
 Content-Type: application/json
 
 {
@@ -108,21 +112,21 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:800/driver-available-jobs
+GET http://127.0.0.1:8000/driver-available-jobs
 
 {
     "driverId" : "1234"
 }
 
 ####
-GET http://127.0.0.1:800/driver-active-jobs
+GET http://127.0.0.1:8000/driver-active-jobs
 
 {
     "driverId" : "1234"
 }
 
 ####
-GET http://127.0.0.1:800/driver-history-jobs
+GET http://127.0.0.1:8000/driver-history-jobs
 
 {
     "driverId" : "1234"
