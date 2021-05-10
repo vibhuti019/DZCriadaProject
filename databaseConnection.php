@@ -19,6 +19,8 @@
         }
 
         $result = $conn->query($query);
+
+        echo var_dump($result);
         
         // var_dump($conn);
         return $result;

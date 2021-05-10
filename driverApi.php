@@ -80,7 +80,7 @@
     function driverDetails($authToken, $arrayOfJson){
         $id = $arrayOfJson["driverId"];
 
-        $sql = "SELECT * FROM `DriverDetails` WHERE mobile= '".$id."';";
+        $sql = "SELECT * FROM `DriverDetails` WHERE id= '".$id."';";
 
         $result = executeQuery($sql);
 
@@ -96,7 +96,7 @@
             }
         }
 
-        return false;
+        return "NEW Error";
     }
 
 
