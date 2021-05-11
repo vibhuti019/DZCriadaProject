@@ -22,7 +22,7 @@
 
         echo var_dump($result);
         
-        // var_dump($conn);
+        echo var_dump($conn);
         return $result;
      
     }

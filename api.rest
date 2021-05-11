@@ -1,4 +1,4 @@
-GET http://127.0.0.1:8000/driver-register
+GET http://18.220.155.26/driver-register
 Content-Type: application/json
 
 {
@@ -15,44 +15,44 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:8000/driver-login
+GET http://18.220.155.26/driver-login
 Content-Type: application/json
 
 {
-    "driverMobile" : "989496843",
-    "driverPassword" : "Password"
+    "driverMobile" : "7878787878",
+    "driverPassword" : "wwwwww"
 }
 
 ####
-GET http://127.0.0.1:8000/driver-details
+GET http://18.220.155.26/driver-details
 Content-Type: application/json
-Auth: 59dd4219db56728d500b9e83f40cdf34
+Auth: 159e8adde2d2242bb5b9fd47926fcf0e
 
 {
-    "driverId" : "3"
+    "driverId" : "50"
 }
 
 ####
-GET http://127.0.0.1:8000/driver-available-jobs
-Content-Type: application/json
-Auth: 59dd4219db56728d500b9e83f40cdf34
-
-{
-    "driverId" : "3"
-}
-
-####
-GET http://127.0.0.1:8000/driver-active-jobs
+GET http://18.220.155.26/driver-available-jobs
 Content-Type: application/json
 Auth: 59dd4219db56728d500b9e83f40cdf34
 
-
 {
-    "driverId" : "3"
+    "driverId" : "7"
 }
 
 ####
-GET http://127.0.0.1:8000/driver-history-jobs
+GET http://18.220.155.26/driver-active-jobs
+Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
+
+
+{
+    "driverId" : "7"
+}
+
+####
+GET http://18.220.155.26/driver-history-jobs
 Content-Type: application/json
 
 {
@@ -60,7 +60,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:8000/driver-job-details
+GET http://18.220.155.26/driver-job-details
 Content-Type: application/json
 
 {
@@ -68,7 +68,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:8000/customer-register
+GET http://18.220.155.26/customer-register
 Content-Type: application/json
 
 {
@@ -80,7 +80,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://127.0.0.1:8000/customer-login
+GET http://18.220.155.26/customer-login
 Content-Type: application/json
 
 {
@@ -90,7 +90,7 @@ Content-Type: application/json
 
 
 #####
-GET http://127.0.0.1:8000/customer-create-job
+GET http://18.220.155.26/customer-create-job
 Content-Type: application/json
 
 {
@@ -111,23 +111,3 @@ Content-Type: application/json
     "paymentId" : "id"
 }
 
-####
-GET http://127.0.0.1:8000/driver-available-jobs
-
-{
-    "driverId" : "1234"
-}
-
-####
-GET http://127.0.0.1:8000/driver-active-jobs
-
-{
-    "driverId" : "1234"
-}
-
-####
-GET http://127.0.0.1:8000/driver-history-jobs
-
-{
-    "driverId" : "3"
-}

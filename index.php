@@ -21,7 +21,7 @@
     
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
-    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+    header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Auth, X-Requested-With");
 
     $path = explode('/',$_SERVER['PATH_INFO']);
     $requestedPath = $path[1];
