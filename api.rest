@@ -15,7 +15,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://18.220.155.26/driver-login
+GET http://18.220.155.26/index.php/driver-login
 Content-Type: application/json
 
 {
