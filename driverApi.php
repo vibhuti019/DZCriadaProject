@@ -25,7 +25,7 @@
         if($driverPassword == $driverConfirmPassword){
             $driverPassword = encrypt($driverPassword);
         }else {
-            return false;
+            return "Error In function";
         }
 
         $sql = "INSERT INTO `DriverDetails` (`name`, `email`, `mobile`, `password`, `picture`, `NRIC`, `vehicleType`, `vehicleNumber`) VALUES ('".$driverName."', '".$driverEmail."', '".$driverMobile."', '".$driverPassword."', '".$driverPicture."', '".$driverNRIC."', '".$driverVehicleType."', '".$driverVehicleNumber."');";
@@ -73,7 +73,7 @@
             }
         }
 
-        return false;
+        return "Database Error";
         
     }
 

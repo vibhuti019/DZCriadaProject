@@ -75,7 +75,7 @@
             echo "new";
         }
 
-        return false;
+        return "Error In function";
         
         
     }
@@ -99,7 +99,7 @@
             }
         }
 
-        return false;
+        return "Error In function";
 
     }
 
