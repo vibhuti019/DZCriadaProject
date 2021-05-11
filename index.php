@@ -2,6 +2,7 @@
 
     //Checks if no other location is requested other than the main page
     if($_SERVER['SCRIPT_NAME'] != "/index.php"){
+        echo $_SERVER['SCRIPT_NAME'];
         die('FALSE');
     }
 
