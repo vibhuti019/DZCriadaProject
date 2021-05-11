@@ -1,7 +1,9 @@
 <?php
 
+    $scriptName = end(explode('/',$_SERVER['SCRIPT_FILENAME']));
+    
     //Checks if no other location is requested other than the main page
-    if(end(explode('/',$_SERVER['SCRIPT_FILENAME'])) != "/index.php"){
+    if(end(explode('/',$_SERVER['SCRIPT_FILENAME'])) != "index.php"){
         echo "False";
         die();
     }
