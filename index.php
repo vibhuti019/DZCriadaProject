@@ -1,8 +1,7 @@
 <?php
 
     //Checks if no other location is requested other than the main page
-    if($_SERVER['SCRIPT_NAME'] != "/index.php"){
-        echo var_dump(explode('/',$_SERVER['SCRIPT_FILENAME']));
+    if(end(explode('/',$_SERVER['SCRIPT_FILENAME'])) != "/index.php"){
         echo "False";
         die();
     }
