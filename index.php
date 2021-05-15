@@ -12,6 +12,7 @@
     include_once('./driverApi.php');
     include_once('./customerApi.php');
     include_once('./companyApi.php');
+    include_once('./adminApi.php');
 
     $bodyOfRequest = file_get_contents('php://input');
     $arrayOfJSON = json_decode($bodyOfRequest, true);
@@ -74,20 +75,20 @@
     elseif(preg_match("/drivercompany/i", $requestedPath)){
         switch($requestedPath){
             case "drivercompany-register":
-    
+                echo companyRegister($arrayOfJSON);
                 break;
     
             case "drivercompany-login":
-    
+                echo companyLogin($arrayOfJSON);
                 break;
     
             case "drivercompany-forgot-password":
-    
                 break;    
 
             case "driver-company-details":
-
+                echo companyDetail($authHeader,$arrayOfJSON);
                 break;
+
             default:
                 die();
         }
@@ -116,6 +117,25 @@
     
             default:
                 die();
+        }
+    }
+    elseif(preg_match("/admin/i", $requestedPath)){
+        switch($requestedPath){
+            case "admin-login":
+                echo adminLogin($arrayOfJSON);
+                break;
+            
+            case "admin-all-jobs":
+                echo adminAllJobs($arrayOfJSON);
+                break;
+
+            case "admin-whole-drivers":
+                echo adminWholeDrivers($arrayOfJSON);
+                break;
+
+            case "admin-whole-customers":
+                echo adminWholeCustomers($arrayOfJSON);
+                break;
         }
     }
     else{

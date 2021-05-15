@@ -91,7 +91,6 @@
             $array["companyId"] = $row["id"];
             $array["companyName"] = $row["name"]; 
             $array["companyMobile"] = $row["mobile"];        
-            $password = $row["password"];
             $array["companyMail"] = $row["email"];
             if(encrypt($array["companyMail"]) == $authToken){
                 $response["Data"] = $array;

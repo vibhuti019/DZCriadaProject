@@ -1,5 +1,6 @@
 GET http://18.220.155.26/driver-register
-Content-Type: application/json
+Content-Type: app
+lication/json
 
 {
     "driverMobile" : "864658768",
@@ -15,7 +16,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://18.220.155.26/index.php/driver-login
+GET http://18.220.155.26/driver-login
 Content-Type: application/json
 
 {
@@ -88,6 +89,15 @@ Content-Type: application/json
     "customerPassword" : "Password"
 }
 
+####
+GET http://18.220.155.26/customer-details
+Content-Type: application/json
+
+{
+    "customerMobile" : "9876543210",
+    "customerPassword" : "Password"
+}
+
 
 #####
 GET http://18.220.155.26/customer-create-job
@@ -111,3 +121,175 @@ Content-Type: application/json
     "paymentId" : "id"
 }
 
+
+#####
+GET http://18.220.155.26/customer-wallet-topup
+Content-Type: application/json
+
+{
+    "customerId" : "asdasf",
+    "topupAmount" : "864658768",
+    "cardName" : "Toa Poyah",
+    "cardNumber" : "76543456789",
+    "cardExpiry" : "MM/YY",
+    "cardCvv" : 765
+}
+
+#####
+GET http://18.220.155.26/customer-wallet-withdraw
+Content-Type: application/json
+
+{
+    "customerId" : "asdasf",
+    "withdrawAmount" : "864658768",
+    "cardName" : "Toa Poyah",
+    "cardNumber" : "76543456789",
+    "cardExpiry" : "MM/YY",
+    "cardCvv" : 765
+}
+
+
+#####
+GET http://18.220.155.26/customer-transaction-list
+Content-Type: application/json
+
+{
+    "customerId" : "458uiubdvu63gdbi7"
+}
+
+#####
+GET http://18.220.155.26/customer-jobs
+Content-Type: application/json
+
+{
+    "customerId" : 1234567
+}
+
+#####
+GET http://18.220.155.26/company-register
+Content-Type: application/json
+
+{
+    "companyUEN" : "ytrertyu",
+    "companyAcra" : "[FILE]",
+    "companyPassword" : "Password",
+    "companyName" : "RobertSoCool",
+    "companyEmail" : "robert@cool.com"
+}
+
+#####
+GET http://18.220.155.26/company-login 
+Content-Type: application/json
+
+{
+    "companyMobile" : "864658768",
+    "companyPassword" : "Password"
+}
+
+
+#####
+GET http://18.220.155.26/company-detail
+Content-Type: application/json
+
+{
+    "companyId" : "1234567"
+}
+
+
+#####
+GET http://18.220.155.26/company-driver-register
+Content-Type: application/json
+
+{
+    "companyId" : "hrdsdftyuijhgf",
+    "driverMobile" : "864658768",
+    "driverPassword" : "Password",
+    "driverName" : "RobertSoCool",
+    "driverMobile" : "989496843",
+    "driverPicture" : "FILE",
+    "driverEmail" : "robert@cool.com",
+    "driverNRIC" : "58568468",
+    "driverVehicleType" : "Bike (Weight < 8KG)",
+    "driverVehicleNumber" : "MH5C848"
+}
+
+#####
+GET http://18.220.155.26/company-drivers
+Content-Type: application/json
+
+{
+    "companyId" : "hrdsdftyuijhgf"
+}
+
+#####
+GET http://18.220.155.26/company-jobs
+Content-Type: application/json
+
+{
+    "companyId" : 1234567,
+    "Drivers" : 987654    
+}
+
+
+#####
+GET http://18.220.155.26/company-job-detail
+Content-Type: application/json
+
+{
+    "jobId": 8765,
+    "companyId": 6567
+}
+
+
+#####
+GET http://18.220.155.26/allocate-driver
+Content-Type: application/json
+
+{
+    "jobId" : 8765,
+    "driverId" : 6567
+}
+
+
+
+
+#####
+GET http://18.220.155.26/admin-login
+Content-Type: application/json
+
+{
+    "adminMobile" : "864658768",
+    "adminPassword" : "Password"
+}
+
+
+#####
+GET http://18.220.155.26/admin-all-jobs
+Content-Type: application/json
+
+{
+    "adminId" : "hrdsdftyuijhgf"
+}
+
+#####
+GET http://18.220.155.26/admin-whole-drivers
+Content-Type: application/json
+
+{
+    "adminId" : "hrdsdftyuijhgf"
+}
+
+#####
+GET http://18.220.155.26/admin-whole-company
+Content-Type: application/json
+
+{
+   "adminId" : "hrdsdftyuijhgf"
+}
+#####
+GET http://18.220.155.26/admin-whole-customer
+Content-Type: application/json
+
+{
+    "adminId" : "hrdsdftyuijhgf"
+}
