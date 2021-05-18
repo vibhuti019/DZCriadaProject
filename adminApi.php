@@ -3,7 +3,7 @@
     include_once('./databaseConnection.php');
 
 
-    function encrypt3($password){
+    function encrypt4($password){
         $encryptedPassword = md5($password);
         $chopEncryptedPassword = substr($encryptedPassword, 0, 8);
         $sendToDatabase = md5($chopEncryptedPassword);
