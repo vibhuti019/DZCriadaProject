@@ -10,7 +10,6 @@
 
     function companyRegister($arrayOfJson){
 
-        $companyMobile = $arrayOfJson["companyMobile"];
         $companyPassword = $arrayOfJson["companyPassword"];
         $companyConfirmPassword = $arrayOfJson["companyConfirmPassword"];
         $companyName = $arrayOfJson["companyName"];
@@ -26,14 +25,13 @@
             return "null";
         }
 
-        $sql = "INSERT INTO `companyDetails` (`companyMobile`, `companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyMobile."', '".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN.",".$companyAcra.");";
+        $sql = "INSERT INTO `companyDetails` (`companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN.",".$companyAcra.");";
 
         executeQuery($sql);
 
         $token = md5($companyEmail);
         
         $array["companyName"] = $companyName;
-        $array["companyMobile"] = $companyMobile;
         $array["companyEmail"] = $companyEmail;
         $array["Token"] = $token;
 

@@ -5,7 +5,7 @@ Content-Type: application/json
     "driverPassword" : "wwwwww",
     "driverConfirmPassword" : "wwwwww",
     "driverName" : "RobertSoCool",
-    "driverMobile" : "7878787878",
+    "driverMobile" : "7878787879",
     "driverPicture" : "[ FILE ]",
     "driverEmail" : "robert@cool.com",
     "driverNRIC" : "58568468",
@@ -14,11 +14,11 @@ Content-Type: application/json
 }
 
 ####
-OPTIONS  https://18.220.155.26/driver-login
+GET  https://18.220.155.26/driver-login
 Content-Type: application/json
 
 {
-    "driverMobile" : "7878787878",
+    "driverMobile" : "7896543210",
     "driverPassword" : "wwwwww"
 }
 
