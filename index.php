@@ -84,7 +84,7 @@
             case "drivercompany-forgot-password":
                 break;    
 
-            case "driver-company-details":
+            case "drivercompany-details":
                 echo companyDetail($authHeader,$arrayOfJSON);
                 break;
 
