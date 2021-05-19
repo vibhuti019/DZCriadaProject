@@ -145,10 +145,10 @@
         $i =0;
 
         while($row = $result->fetch_assoc()){
-            $array["customerId"] = $row["id"];
-            $array["customerName"] = $row["name"]; 
-            $array["customerMobile"] = $row["mobile"];        
-            $array["customerMail"] = $row["email"];
+            $array["customerId"] = $row["customerId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["customerMobile"] = $row["customerMobile"];        
+            $array["customerMail"] = $row["customerMail"];
             $responseData[$i] = $array;
             $i = $i + 1;
         }
