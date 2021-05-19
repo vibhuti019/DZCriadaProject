@@ -81,13 +81,13 @@
 
     function customerDetail($authToken,$arrayOfJson){
         $id = $arrayOfJson["customerId"];
-
-        $sql = "SELECT * FROM `CustomerDetails` WHERE customerMobile= '".$id."';";
+                      
+        $sql = "SELECT * FROM `CustomerDetails` WHERE customerId= '".$id."';";
 
         $result = executeQuery($sql);
 
         if($row = $result->fetch_assoc()){
-            $array["customerId"] = $row["id"];
+            $array["customerId"] = $row["customerId"];
             $array["customerName"] = $row["customerName"]; 
             $array["customerMobile"] = $row["customerMobile"];        
             $array["customerMail"] = $row["customerEmail"];
