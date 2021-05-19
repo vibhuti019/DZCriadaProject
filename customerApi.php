@@ -82,16 +82,15 @@
     function customerDetail($authToken,$arrayOfJson){
         $id = $arrayOfJson["customerId"];
 
-        $sql = "SELECT * FROM `CustomerDetails` WHERE mobile= '".$id."';";
+        $sql = "SELECT * FROM `CustomerDetails` WHERE customerMobile= '".$id."';";
 
         $result = executeQuery($sql);
 
         if($row = $result->fetch_assoc()){
             $array["customerId"] = $row["id"];
-            $array["customerName"] = $row["name"]; 
-            $array["customerMobile"] = $row["mobile"];        
-            $password = $row["password"];
-            $array["customerMail"] = $row["email"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["customerMobile"] = $row["customerMobile"];        
+            $array["customerMail"] = $row["customerEmail"];
             if(encrypt($array["customerMail"]) == $authToken){
                 $response["Data"] = $array;
                 return json_encode($response);
