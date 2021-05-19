@@ -148,7 +148,7 @@
             $array["customerId"] = $row["customerId"];
             $array["customerName"] = $row["customerName"]; 
             $array["customerMobile"] = $row["customerMobile"];        
-            $array["customerEmail"] = $row["customerMail"];
+            $array["customerEmail"] = $row["customerEmail"];
             $responseData[$i] = $array;
             $i = $i + 1;
         }
