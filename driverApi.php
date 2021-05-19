@@ -130,11 +130,8 @@
 
         $sql = "SELECT * FROM `Jobs` WHERE status= 'Assigned' AND assignedDriver='".$id."';";
 
-        $result = executeQuery($sql);
-        $array = 0;
-        $responseData = 0;
-
         $i =0;
+        $result = executeQuery($sql);
         while($row = $result->fetch_assoc()){
             $array["jobId"] = $row["jobId"];
             $array["customerName"] = $row["customerName"]; 
@@ -158,9 +155,7 @@
         $sql = "SELECT * FROM `Jobs` WHERE status= 'Done' AND assignedDriver='".$id."';";
 
         $result = executeQuery($sql);
-        $array = 0;
-        $responseData = 0;
-
+        
         $i =0;
         while($row = $result->fetch_assoc()){
             $array["jobId"] = $row["jobId"];
@@ -186,8 +181,6 @@
         $sql = "SELECT * FROM `Jobs` WHERE assignedDriver='".$id."';";
 
         $result = executeQuery($sql);
-        $array = 0;
-        $responseData = 0;
 
 
         $i =0;
@@ -208,5 +201,24 @@
     
     }
 
+
+    function driverAcceptJob($arrayOfJson){
+        $driverId = $arrayOfJson["driverId"];
+        $jobId = $arrayOfJson["jobId"];
+
+        
+        $sql = "Update `Jobs` Set assignedDriver=\"".$driverId."\", status=\"Assigned\" Where jobId=\"".$jobId."\";";
+        $result= executeQuery($sql);
+
+        if($result){
+            $response["Data"] = "Driver Assigned";
+            return json_encode($response);
+        }
+        
+        $response["Data"] = "Invalid Data";
+        return json_encode($response);
+
+
+    }
 
 ?>

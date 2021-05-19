@@ -8,6 +8,7 @@
     }
 
 
+
     include_once('./driverApi.php');
     include_once('./customerApi.php');
     include_once('./companyApi.php');
@@ -26,11 +27,14 @@
     header('Access-Control-Allow-Methods: POST, GET, OPTIONS');
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Auth, X-Requested-With");
 
+    
+
     $path = explode('/',$_SERVER['PATH_INFO']);
     $requestedPath = $path[1];
     
     
-    if(preg_match("/driver/i", $requestedPath)){
+    if(preg_match("/driver-/i", $requestedPath)){
+        // echo "Yes";
         switch($requestedPath){
             case "driver-register":
                 echo driverRegister($arrayOfJSON);
@@ -66,12 +70,16 @@
             case "driver-job-details":
                 echo driverJobDetail($arrayOfJSON);
                 break;
+
+            case "driver-accept-job":
+                echo driverAcceptJob($arrayOfJSON);
+                break;
     
             default:
                 die();
         }
     }
-    elseif(preg_match("/drivercompany/i", $requestedPath)){
+    elseif(preg_match("/drivercompany-/i", $requestedPath)){
         switch($requestedPath){
             case "drivercompany-register":
                 echo companyRegister($arrayOfJSON);
@@ -92,7 +100,7 @@
                 die();
         }
     }
-    elseif(preg_match("/customer/i", $requestedPath)){
+    elseif(preg_match("/customer-/i", $requestedPath)){
         switch($requestedPath){
             case "customer-register":
                 echo customerRegister($arrayOfJSON);
@@ -113,12 +121,16 @@
             case "customer-create-job":
                 echo customerCreateJobs($arrayOfJSON);
                 break;
-    
+
+            case "customer-job-complete":
+                echo customerJobComplete($arrayOfJSON);
+                break;
+
             default:
                 die();
         }
     }
-    elseif(preg_match("/admin/i", $requestedPath)){
+    elseif(preg_match("/admin-/i", $requestedPath)){
         switch($requestedPath){
             case "admin-login":
                 echo adminLogin($arrayOfJSON);

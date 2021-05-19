@@ -137,5 +137,21 @@
 
     }
 
+    function customerJobComplete($arrayOfJson){
+        $jobId = $arrayOfJson["jobId"];
+        
+        $sql = "Update `Jobs` Set status=\"Done\" Where jobId=\"".$jobId."\";";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = "Customer Reached";
+            return json_encode($response);
+        }
+        
+        $response["Data"] = "Invalid Data";
+        return json_encode($response);
+
+    }
     
 ?>

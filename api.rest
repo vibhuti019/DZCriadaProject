@@ -55,7 +55,7 @@ GET http://127.0.0.1:8000/driver-history-jobs
 Content-Type: application/json
 
 {
-    "driverId" : "3"
+    "driverId" : "7"
 }
 
 ####
@@ -240,12 +240,12 @@ Content-Type: application/json
 
 
 #####
-GET http://127.0.0.1:8000/allocate-driver
+GET http://127.0.0.1:8000/driver-accept-job
 Content-Type: application/json
 
 {
-    "jobId" : 8765,
-    "driverId" : 6567
+    "jobId" : 2074114871,
+    "driverId" : 7
 }
 
 
@@ -284,10 +284,20 @@ Content-Type: application/json
 {
    "adminId" : "hrdsdftyuijhgf"
 }
+
 #####
-GET http://127.0.0.1:8000/admin-whole-customer
+GET http://127.0.0.1:8000/admin-whole-customers
 Content-Type: application/json
 
 {
     "adminId" : "hrdsdftyuijhgf"
+}
+
+
+####
+GET http://127.0.0.1:8000/customer-job-complete
+Content-Type: application/json
+
+{
+    "jobId" : "2087620053"
 }
