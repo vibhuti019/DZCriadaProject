@@ -197,6 +197,7 @@
             $array["driverNotes"] = $row["driverNotes"];     
             $array["scheduleDelivery"] = $row["scheduleDelivery"];     
             $array["scheduleDate"] = $row["scheduleDate"];
+            $array["scheduleTime"] = $row["scheduleTime"];
             $array["status"] = $row["status"];
             $array["assignedDriverId"] = $row["assignedDriver"];
             $responseData[$i] = $array;

@@ -25,7 +25,7 @@
             return "null";
         }
 
-        $sql = "INSERT INTO `companyDetails` (`companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN.",".$companyAcra.");";
+        $sql = "INSERT INTO `CompanyDetails` (`companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN.",".$companyAcra.");";
 
         executeQuery($sql);
 
@@ -50,20 +50,20 @@
         $companyPassword = encrypt($companyPassword);
 
 
-        $sql = "SELECT * FROM `companyDetails` WHERE mobile= '".$companyMobile."';";
+        $sql = "SELECT * FROM `CompanyDetails` WHERE comapnyMobile= '".$companyMobile."';";
 
         
         $result = executeQuery($sql);
 
         
         if($row = $result->fetch_assoc()){
-            $array["companyId"] = $row["id"];
-            $array["companyName"] = $row["name"]; 
-            $array["companyMobile"] = $row["mobile"];        
-            $password = $row["password"];
-            $array["companyMail"] = $row["email"];
+            $array["companyId"] = $row["companyId"];
+            $array["companyName"] = $row["companyName"]; 
+            $array["companyMobile"] = $row["companyMobile"];        
+            $password = $row["companyPassword"];
+            $array["companyEmail"] = $row["companyEmail"];
             if($companyPassword == $password){
-                $array["token"] = encrypt($array["email"]);
+                $array["token"] = encrypt($array["companyEmail"]);
                 $response["Data"] = $array;
                 return json_encode($response);
             }else{
@@ -81,16 +81,16 @@
     function companyDetail($authToken,$arrayOfJson){
         $id = $arrayOfJson["companyId"];
 
-        $sql = "SELECT * FROM `companyDetails` WHERE mobile= '".$id."';";
+        $sql = "SELECT * FROM `CompanyDetails` WHERE mobile= '".$id."';";
 
         $result = executeQuery($sql);
 
         if($row = $result->fetch_assoc()){
-            $array["companyId"] = $row["id"];
-            $array["companyName"] = $row["name"]; 
-            $array["companyMobile"] = $row["mobile"];        
-            $array["companyMail"] = $row["email"];
-            if(encrypt($array["companyMail"]) == $authToken){
+            $array["companyId"] = $row["companyId"];
+            $array["companyName"] = $row["companyName"]; 
+            $array["companyMobile"] = $row["companyMobile"];        
+            $array["companyEmail"] = $row["companyEmail"];
+            if(encrypt($array["companyEmail"]) == $authToken){
                 $response["Data"] = $array;
                 return json_encode($response);
             }
