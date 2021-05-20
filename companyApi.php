@@ -68,7 +68,9 @@
                 $response["Data"] = $array;
                 return json_encode($response);
             }else{
-                echo "new2";
+                $Data["Error"] = "Invalid Credentials";
+                $response["Data"] = $Data;
+                return json_encode($response);
             }
         }else{
             echo "new";
