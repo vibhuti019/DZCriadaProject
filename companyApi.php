@@ -25,9 +25,11 @@
             return "null";
         }
 
-        $sql = "INSERT INTO `CompanyDetails` (`companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN.",".$companyAcra.");";
+        $sql = "INSERT INTO `CompanyDetails` (`companyPassword`, `companyName`, `companyEmail`,`companyUEN`,`companyAcra`) VALUES ('".$companyPassword."', '".$companyName."', '".$companyEmail."','".$companyUEN."','".$companyAcra."');";
 
+        
         executeQuery($sql);
+        
 
         $token = md5($companyEmail);
         
@@ -44,22 +46,21 @@
 
     function companyLogin($arrayOfJson){
 
-        $companyMobile = $arrayOfJson["companyMobile"];
+        $companyEmail = $arrayOfJson["companyEmail"];
         $companyPassword = $arrayOfJson["companyPassword"];
 
         $companyPassword = encrypt($companyPassword);
 
 
-        $sql = "SELECT * FROM `CompanyDetails` WHERE comapnyMobile= '".$companyMobile."';";
+        $sql = "SELECT * FROM `CompanyDetails` WHERE companyEmail= '".$companyEmail."';";
 
-        
+    
         $result = executeQuery($sql);
 
         
         if($row = $result->fetch_assoc()){
             $array["companyId"] = $row["companyId"];
             $array["companyName"] = $row["companyName"]; 
-            $array["companyMobile"] = $row["companyMobile"];        
             $password = $row["companyPassword"];
             $array["companyEmail"] = $row["companyEmail"];
             if($companyPassword == $password){
@@ -81,14 +82,14 @@
     function companyDetail($authToken,$arrayOfJson){
         $id = $arrayOfJson["companyId"];
 
-        $sql = "SELECT * FROM `CompanyDetails` WHERE mobile= '".$id."';";
+
+        $sql = "SELECT * FROM `CompanyDetails` WHERE companyId= '".$id."';";
 
         $result = executeQuery($sql);
 
         if($row = $result->fetch_assoc()){
             $array["companyId"] = $row["companyId"];
             $array["companyName"] = $row["companyName"]; 
-            $array["companyMobile"] = $row["companyMobile"];        
             $array["companyEmail"] = $row["companyEmail"];
             if(encrypt($array["companyEmail"]) == $authToken){
                 $response["Data"] = $array;

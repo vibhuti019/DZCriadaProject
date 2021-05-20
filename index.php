@@ -79,20 +79,20 @@
                 die();
         }
     }
-    elseif(preg_match("/drivercompany-/i", $requestedPath)){
+    elseif(preg_match("/company-/i", $requestedPath)){
         switch($requestedPath){
-            case "drivercompany-register":
+            case "company-register":
                 echo companyRegister($arrayOfJSON);
                 break;
     
-            case "drivercompany-login":
+            case "company-login":
                 echo companyLogin($arrayOfJSON);
                 break;
     
-            case "drivercompany-forgot-password":
+            case "company-forgot-password":
                 break;    
 
-            case "drivercompany-details":
+            case "company-details":
                 echo companyDetail($authHeader,$arrayOfJSON);
                 break;
 

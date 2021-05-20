@@ -171,7 +171,8 @@ Content-Type: application/json
 {
     "companyUEN" : "ytrertyu",
     "companyAcra" : "[FILE]",
-    "companyPassword" : "Password",
+    "companyPassword" : "Password" ,
+    "companyConfirmPassword": "Password",
     "companyName" : "RobertSoCool",
     "companyEmail" : "robert@cool.com"
 }
@@ -181,7 +182,7 @@ GET http://127.0.0.1:8000/company-login
 Content-Type: application/json
 
 {
-    "companyMobile" : "864658768",
+    "companyEmail": "robert@cool.com",
     "companyPassword" : "Password"
 }
 
