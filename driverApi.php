@@ -88,7 +88,6 @@
             $array["driverId"] = $row["id"];
             $array["driverName"] = $row["name"]; 
             $array["driverMobile"] = $row["mobile"];        
-            $password = $row["password"];
             $array["driverMail"] = $row["email"];
             if(encrypt($array["driverMail"]) == $authToken){
                 $response["Data"] = $array;

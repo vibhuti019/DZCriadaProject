@@ -1,4 +1,4 @@
-OPTIONS  http://18.220.155.26/driver-register
+OPTIONS  http://127.0.0.1:8000/driver-register
 Content-Type: application/json
 
 {
@@ -14,25 +14,16 @@ Content-Type: application/json
 }
 
 ####
-GET  http://18.220.155.26/driver-login
+GET  http://127.0.0.1:8000/driver-login
 Content-Type: application/json
 
 {
-    "driverMobile" : "7896543210",
+    "driverMobile" : "7878787878",
     "driverPassword" : "wwwwww"
 }
 
 ####
-GET http://18.220.155.26/driver-details
-Content-Type: application/json
-Auth: 159e8adde2d2242bb5b9fd47926fcf0e
-
-{
-    "driverId" : "50"
-}
-
-####
-GET http://18.220.155.26/driver-available-jobs
+GET http://127.0.0.1:8000/driver-details
 Content-Type: application/json
 Auth: 59dd4219db56728d500b9e83f40cdf34
 
@@ -41,7 +32,16 @@ Auth: 59dd4219db56728d500b9e83f40cdf34
 }
 
 ####
-GET http://18.220.155.26/driver-active-jobs
+GET http://127.0.0.1:8000/driver-available-jobs
+Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
+
+{
+    "driverId" : "7"
+}
+
+####
+GET http://127.0.0.1:8000/driver-active-jobs
 Content-Type: application/json
 Auth: 59dd4219db56728d500b9e83f40cdf34
 
@@ -51,7 +51,7 @@ Auth: 59dd4219db56728d500b9e83f40cdf34
 }
 
 ####
-GET http://18.220.155.26/driver-history-jobs
+GET http://127.0.0.1:8000/driver-history-jobs
 Content-Type: application/json
 
 {
@@ -59,15 +59,16 @@ Content-Type: application/json
 }
 
 ####
-GET http://18.220.155.26/driver-job-details
+GET http://127.0.0.1:8000/driver-job-details
 Content-Type: application/json
+Auth: 59dd4219db56728d500b9e83f40cdf34
 
 {
-    "driverId" : "3"
+    "driverId" : "7"
 }
 
 ####
-GET http://18.220.155.26/customer-register
+GET http://127.0.0.1:8000/customer-register
 Content-Type: application/json
 
 {
@@ -79,7 +80,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://18.220.155.26/customer-login
+GET http://127.0.0.1:8000/customer-login
 Content-Type: application/json
 
 {
@@ -88,7 +89,7 @@ Content-Type: application/json
 }
 
 ####
-GET http://18.220.155.26/customer-details
+GET http://127.0.0.1:8000/customer-details
 Auth: d6d8c88477cfde1a3a462a4d4def198a
 Content-Type: application/json
 
@@ -98,7 +99,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/customer-create-job
+GET http://127.0.0.1:8000/customer-create-job
 Content-Type: application/json
 
 {
@@ -121,7 +122,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/customer-wallet-topup
+GET http://127.0.0.1:8000/customer-wallet-topup
 Content-Type: application/json
 
 {
@@ -134,7 +135,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/customer-wallet-withdraw
+GET http://127.0.0.1:8000/customer-wallet-withdraw
 Content-Type: application/json
 
 {
@@ -148,7 +149,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/customer-transaction-list
+GET http://127.0.0.1:8000/customer-transaction-list
 Content-Type: application/json
 
 {
@@ -156,7 +157,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/customer-jobs
+GET http://127.0.0.1:8000/customer-jobs
 Content-Type: application/json
 
 {
@@ -164,7 +165,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/company-register
+GET http://127.0.0.1:8000/company-register
 Content-Type: application/json
 
 {
@@ -176,7 +177,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/company-login 
+GET http://127.0.0.1:8000/company-login 
 Content-Type: application/json
 
 {
@@ -186,7 +187,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/company-detail
+GET http://127.0.0.1:8000/company-detail
 Content-Type: application/json
 
 {
@@ -195,7 +196,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/company-driver-register
+GET http://127.0.0.1:8000/company-driver-register
 Content-Type: application/json
 
 {
@@ -212,7 +213,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/company-drivers
+GET http://127.0.0.1:8000/company-drivers
 Content-Type: application/json
 
 {
@@ -220,7 +221,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/company-jobs
+GET http://127.0.0.1:8000/company-jobs
 Content-Type: application/json
 
 {
@@ -230,7 +231,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/company-job-detail
+GET http://127.0.0.1:8000/company-job-detail
 Content-Type: application/json
 
 {
@@ -240,7 +241,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/driver-accept-job
+GET http://127.0.0.1:8000/driver-accept-job
 Content-Type: application/json
 
 {
@@ -252,7 +253,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/admin-login
+GET http://127.0.0.1:8000/admin-login
 Content-Type: application/json
 
 {
@@ -262,7 +263,7 @@ Content-Type: application/json
 
 
 #####
-GET http://18.220.155.26/admin-all-jobs
+GET http://127.0.0.1:8000/admin-all-jobs
 Content-Type: application/json
 
 {
@@ -270,7 +271,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/admin-whole-drivers
+GET http://127.0.0.1:8000/admin-whole-drivers
 Content-Type: application/json
 
 {
@@ -278,7 +279,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/admin-whole-company
+GET http://127.0.0.1:8000/admin-whole-company
 Content-Type: application/json
 
 {
@@ -286,7 +287,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/admin-whole-customers
+GET http://127.0.0.1:8000/admin-whole-customers
 Content-Type: application/json
 
 {
@@ -295,7 +296,7 @@ Content-Type: application/json
 
 
 ####
-GET http://18.220.155.26/customer-job-complete
+GET http://127.0.0.1:8000/customer-job-complete
 Content-Type: application/json
 
 {
