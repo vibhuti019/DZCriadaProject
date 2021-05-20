@@ -186,10 +186,19 @@
         while($row = $result->fetch_assoc()){
             $array["jobId"] = $row["jobId"];
             $array["customerName"] = $row["customerName"]; 
+            $array["customerMobile"] = $row["customerMobile"]; 
             $array["deliveryTime"] = $row["deliveryTime"];        
             $array["dropOffLocation"] = $row["dropOffLocation"];        
-            $array["pickupLocation"] = $row["pickupLocation"];        
-            $array["requiredVehicle"] = $row["requiredVehicle"];        
+            $array["dropUnitNumber"] = $row["dropUnitNumber"];
+            $array["pickupLocation"] = $row["pickupLocation"];
+            $array["pickupUnitNumber"] = $row["pickupUnitNumber"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];  
+            $array["priceOfDelivery"] = $row["priceOfDelivery"];
+            $array["driverNotes"] = $row["driverNotes"];     
+            $array["scheduleDelivery"] = $row["scheduleDelivery"];     
+            $array["scheduleDate"] = $row["scheduleDate"];
+            $array["status"] = $row["status"];
+            $array["assignedDriverId"] = $row["assignedDriver"];
             $responseData[$i] = $array;
             $i = $i + 1;
         }
