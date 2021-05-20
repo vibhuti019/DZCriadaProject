@@ -18,7 +18,7 @@ GET  http://127.0.0.1:8000/driver-login
 Content-Type: application/json
 
 {
-    "driverMobile" : "7878787878",
+    "driverMobile" : "7878787879",
     "driverPassword" : "wwwwww"
 }
 
@@ -28,7 +28,7 @@ Content-Type: application/json
 Auth: 59dd4219db56728d500b9e83f40cdf34
 
 {
-    "driverId" : "7"
+    "driverId" : "84"
 }
 
 ####
@@ -64,7 +64,7 @@ Content-Type: application/json
 Auth: 59dd4219db56728d500b9e83f40cdf34
 
 {
-    "driverId" : "7"
+    "jobId" : "2074114871"
 }
 
 ####

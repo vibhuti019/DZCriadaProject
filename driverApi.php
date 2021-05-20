@@ -175,9 +175,9 @@
     }
 
     function driverJobDetail($arrayOfJson){
-        $id = $arrayOfJson["driverId"];
+        $id = $arrayOfJson["jobId"];
 
-        $sql = "SELECT * FROM `Jobs` WHERE assignedDriver='".$id."';";
+        $sql = "SELECT * FROM `Jobs` WHERE jobId='".$id."';";
 
         $result = executeQuery($sql);
 
