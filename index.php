@@ -80,7 +80,7 @@
                 break;
 
             case "driver-change-password":
-                echo customerChangePassword($arrayOfJSON);
+                echo driverChangePassword($arrayOfJSON);
                 break;
             default:
                 die();
@@ -108,7 +108,7 @@
                 break;
 
             case "company-change-password":
-                echo customerChangePassword($arrayOfJSON);
+                echo companyChangePassword($arrayOfJSON);
                 break;
 
             default:
