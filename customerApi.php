@@ -178,7 +178,7 @@
     function customerJob($arrayOfJson){
         $id = $arrayOfJson["customerId"];
 
-        $sql = "SELECT * FROM `Jobs` WHERE jobId='".$id."';";
+        $sql = "SELECT * FROM `Jobs` WHERE customerId='".$id."';";
 
         $result = executeQuery($sql);
 
