@@ -79,6 +79,9 @@
                 echo driverEdit($arrayOfJSON);
                 break;
 
+            case "driver-change-password":
+                echo customerChangePassword($arrayOfJSON);
+                break;
             default:
                 die();
         }
@@ -103,7 +106,10 @@
             case "company-edit":
                 echo companyEdit($arrayOfJSON);
                 break;
-            
+
+            case "company-change-password":
+                echo customerChangePassword($arrayOfJSON);
+                break;
 
             default:
                 die();
@@ -146,7 +152,7 @@
             case "customer-change-password":
                 echo customerChangePassword($arrayOfJSON);
                 break;
-                
+
             default:
                 die();
         }
