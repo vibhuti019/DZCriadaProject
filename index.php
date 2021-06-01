@@ -142,6 +142,11 @@
             case "customer-job":
                 echo customerJob($arrayOfJSON);
                 break;
+
+            case "customer-change-password":
+                echo customerChangePassword($arrayOfJSON);
+                break;
+                
             default:
                 die();
         }

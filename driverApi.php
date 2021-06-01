@@ -245,7 +245,7 @@
         $result = executeQuery($sql);
 
         if($result){
-            $response["Data"] = "Data Updated";
+            $response["Data"] = $arrayOfJson;
             return json_encode($response);
         }
         

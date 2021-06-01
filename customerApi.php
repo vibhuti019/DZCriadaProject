@@ -210,4 +210,30 @@
         return json_encode($response);
     }
     
+    function customerChangePassword($arrayOfJson){
+        $customerId = $arrayOfJson["customerId"];
+        $customerPassword = $arrayOfJson["password"];
+        $customerConfirmPassword = $arrayOfJson["confirmPassword"];
+        
+        if($customerPassword == $customerConfirmPassword){
+            $customerPassword = encrypt2($customerPassword);
+        }
+        else{
+            $response["Data"] = "Invalid Data";
+            return json_encode($response);
+        }
+
+        $sql="UPDATE `CustomerDetails` SET `customerPassword` = '".$customerPassword."' WHERE `CustomerDetails`.`customerId` = ".$customerId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = $arrayOfJson;
+            return json_encode($response);
+        }
+
+        $response["Data"] = "Invalid Data";
+        
+        return json_encode($response);
+    }
 ?>
