@@ -178,7 +178,7 @@ Content-Type: application/json
 }
 
 #####
-GET http://127.0.0.1:8000/company-login 
+GET http://18.220.155.26/company-login 
 Content-Type: application/json
 
 {

@@ -230,4 +230,28 @@
 
     }
 
+    function driverEdit($arrayOfJson){
+        $driverMobile = $arrayOfJson["driverMobile"];
+        $driverId = $arrayOfJson["driverId"];
+        $driverName = $arrayOfJson["driverName"];
+        $driverPicture = $arrayOfJson["driverPicture"];
+        $driverEmail = $arrayOfJson["driverEmail"];
+        $driverNRIC = $arrayOfJson['driverNRIC'];
+        $driverVehicleType = $arrayOfJson["driverVehicleType"];
+        $driverVehicleNumber = $arrayOfJson["driverVehicleNumber"];
+
+        $sql="UPDATE `DriverDetails` SET `name` = '".$driverName."', `email` = '".$driverEmail."', `mobile` = '".$driverMobile."', `picture` = '".$driverPicture."', `NRIC` = '".$driverNRIC."', `vehicleType` = '".$driverVehicleType."', `vehicleNumber` = '".$driverVehicleNumber."' WHERE `DriverDetails`.`id` = ".$driverId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = "Data Updated";
+            return json_encode($response);
+        }
+        
+        $response["Data"] = "Invalid Data";
+        return json_encode($response);
+
+    }
+
 ?>

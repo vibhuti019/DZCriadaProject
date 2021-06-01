@@ -153,5 +153,25 @@
         return json_encode($response);
 
     }
+
+    function customerEdit($arrayOfJson){
+        $customerMobile = $arrayOfJson["customerMobile"];
+        $customerId = $arrayOfJson["customerId"];
+        $customerName = $arrayOfJson["customerName"];
+        $customerEmail = $arrayOfJson["customerEmail"];
+
+        $sql="UPDATE `CustomerDetails` SET `customerMobile` = '".$customerMobile."', `customerName` = '".$customerName."', `customerEmail` = '".$customerEmail."' WHERE `CustomerDetails`.`customerId` = ".$customerId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = "Data Updated";
+            return json_encode($response);
+        }
+        
+        $response["Data"] = "Invalid Data";
+        return json_encode($response);
+
+    }
     
 ?>

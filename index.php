@@ -75,6 +75,10 @@
                 echo driverAcceptJob($arrayOfJSON);
                 break;
     
+            case "driver-edit":
+                echo driverEdit($arrayOfJSON);
+                break;
+
             default:
                 die();
         }
@@ -95,6 +99,11 @@
             case "company-details":
                 echo companyDetail($authHeader,$arrayOfJSON);
                 break;
+
+            case "company-edit":
+                echo companyEdit($arrayOfJSON);
+                break;
+            
 
             default:
                 die();
@@ -125,6 +134,11 @@
             case "customer-job-complete":
                 echo customerJobComplete($arrayOfJSON);
                 break;
+            
+            case "customer-edit":
+                echo customerEdit($arrayOfJSON);
+                break;
+            
 
             default:
                 die();

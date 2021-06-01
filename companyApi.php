@@ -103,4 +103,25 @@
 
     }
 
+    function companyEdit($arrayOfJson){
+        $companyId = $arrayOfJson["companyId"];
+        $companyName = $arrayOfJson["companyName"];
+        $companyEmail = $arrayOfJson["companyEmail"];
+        $companyUEN = $arrayOfJson["companyUEN"];
+        $companyAcra = $arrayOfJson["companyAcra"];
+
+        $sql = "UPDATE `CompanyDetails` SET `companyName` = '".$companyName."', `companyEmail` = '".$companyEmail."', `companyUEN` = '".$companyUEN."', `companyAcra` = '".$companyAcra."' WHERE `CompanyDetails`.`companyId` = ".$companyId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = "Data Updated";
+            return json_encode($response);
+        }
+        
+        $response["Data"] = "Invalid Data";
+        return json_encode($response);
+
+    }   
+
 ?>  
