@@ -228,7 +228,7 @@
         $result = executeQuery($sql);
 
         if($result){
-            $response["Data"] = $arrayOfJson;
+            $response["Data"]["Message"] = "Password successfully changed";
             return json_encode($response);
         }
 
