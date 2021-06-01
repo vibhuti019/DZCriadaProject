@@ -267,7 +267,7 @@
             return json_encode($response);
         }
 
-        $sql="UPDATE `DriverDetails` SET `password` = '".$driverPassword."' WHERE `driverDetails`.`id` = ".$driverId." ";
+        $sql="UPDATE `DriverDetails` SET `password` = '".$driverPassword."' WHERE `DriverDetails`.`id` = ".$driverId." ";
 
         $result = executeQuery($sql);
 
