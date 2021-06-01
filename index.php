@@ -139,7 +139,9 @@
                 echo customerEdit($arrayOfJSON);
                 break;
             
-
+            case "customer-job":
+                echo customerJob($arrayOfJSON);
+                break;
             default:
                 die();
         }

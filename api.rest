@@ -103,6 +103,7 @@ GET http://18.220.155.26/customer-create-job
 Content-Type: application/json
 
 {
+    "customerId" : 1,
     "customerName" : "Melisa Tan",
     "customerMobile" : "989496843",
     "deliveryTime" : "31 Aug 12:20PM",
@@ -165,12 +166,13 @@ Content-Type: application/json
 }
 
 #####
-GET http://18.220.155.26/company-register
+GET http://18.220.155.26/company-edit
 Content-Type: application/json
 
 {
     "companyUEN" : "ytrertyu",
     "companyAcra" : "[FILE]",
+    "companyId" : 1,
     "companyPassword" : "assword" ,
     "companyConfirmPassword": "assword",
     "companyName" : "RoertSoCool",

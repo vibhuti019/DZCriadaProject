@@ -105,6 +105,7 @@
     function customerCreateJobs($arrayOfJson){
         
 
+        $customerId = $arrayOfJson["customerId"];
         $customerName = $arrayOfJson["customerName"];
         $customerMobile = $arrayOfJson["customerMobile"];
         $deliveryTime = $arrayOfJson["deliveryTime"];
@@ -123,7 +124,7 @@
         $jobId = rand();
 
 
-        $sql = "INSERT INTO `Jobs` (`jobId`, `customerName`, `customerMobile`, `deliveryTime`, `dropOffLocation`, `dropUnitNumber`, `pickupLocation`, `pickupUnitNumber`, `requiredVehicle`, `priceOfDelivery`, `scheduleDelivery`, `scheduleDate`, `scheduleTime`, `driverNotes`, `paymentMode`, `paymentId`, `status`, `assignedDriver`) VALUES (".$jobId.", '".$customerName."', '".$customerMobile."', '".$deliveryTime."', '".$dropOffLocation."', '".$dropUnitNumber."', '".$pickupLocation."', '".$pickupUnitNumber."', '".$requiredVehicle."', '".$priceOfDelivery."', '".$scheduleDelivery."', '".$scheduleDate."', '".$scheduleTime."', '".$driverNotes."', '".$paymentMode."', '".$paymentId."', 'Booked', 'None') ;";
+        $sql = "INSERT INTO `Jobs` (`jobId`, `customerName`, `customerMobile`, `deliveryTime`, `dropOffLocation`, `dropUnitNumber`, `pickupLocation`, `pickupUnitNumber`, `requiredVehicle`, `priceOfDelivery`, `scheduleDelivery`, `scheduleDate`, `scheduleTime`, `driverNotes`, `paymentMode`, `paymentId`, `status`, `assignedDriver`,`customerId`) VALUES (".$jobId.", '".$customerName."', '".$customerMobile."', '".$deliveryTime."', '".$dropOffLocation."', '".$dropUnitNumber."', '".$pickupLocation."', '".$pickupUnitNumber."', '".$requiredVehicle."', '".$priceOfDelivery."', '".$scheduleDelivery."', '".$scheduleDate."', '".$scheduleTime."', '".$driverNotes."', '".$paymentMode."', '".$paymentId."', 'Booked', 'None','".$customerId."') ;";
 
         executeQuery($sql);
 
@@ -172,6 +173,41 @@
         $response["Data"] = "Invalid Data";
         return json_encode($response);
 
+    }
+
+    function customerJob($arrayOfJson){
+        $id = $arrayOfJson["customerId"];
+
+        $sql = "SELECT * FROM `Jobs` WHERE jobId='".$id."';";
+
+        $result = executeQuery($sql);
+
+
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["jobId"] = $row["jobId"];
+            $array["customerName"] = $row["customerName"]; 
+            $array["customerMobile"] = $row["customerMobile"]; 
+            $array["deliveryTime"] = $row["deliveryTime"];        
+            $array["dropOffLocation"] = $row["dropOffLocation"];        
+            $array["dropUnitNumber"] = $row["dropUnitNumber"];
+            $array["pickupLocation"] = $row["pickupLocation"];
+            $array["pickupUnitNumber"] = $row["pickupUnitNumber"];        
+            $array["requiredVehicle"] = $row["requiredVehicle"];  
+            $array["priceOfDelivery"] = $row["priceOfDelivery"];
+            $array["driverNotes"] = $row["driverNotes"];     
+            $array["scheduleDelivery"] = $row["scheduleDelivery"];     
+            $array["scheduleDate"] = $row["scheduleDate"];
+            $array["scheduleTime"] = $row["scheduleTime"];
+            $array["status"] = $row["status"];
+            $array["assignedDriverId"] = $row["assignedDriver"];
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
+
+        $response["Data"] = $responseData;
+        
+        return json_encode($response);
     }
     
 ?>
