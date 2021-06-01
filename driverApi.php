@@ -254,4 +254,30 @@
 
     }
 
+    function driverChangePassword($arrayOfJson){
+        $driverId = $arrayOfJson["driverId"];
+        $driverPassword = $arrayOfJson["password"];
+        $driverConfirmPassword = $arrayOfJson["confirmPassword"];
+        
+        if($driverPassword == $driverConfirmPassword){
+            $driverPassword = encrypt2($driverPassword);
+        }
+        else{
+            $response["Data"] = "Invalid Data";
+            return json_encode($response);
+        }
+
+        $sql="UPDATE `DriverDetails` SET `password` = '".$driverPassword."' WHERE `driverDetails`.`id` = ".$driverId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = $arrayOfJson;
+            return json_encode($response);
+        }
+
+        $response["Data"] = "Invalid Data";
+        
+        return json_encode($response);
+    }
 ?>

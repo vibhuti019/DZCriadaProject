@@ -1,8 +1,8 @@
-OPTIONS  http://18.220.155.26/driver-register
+OPTIONS  http://18.220.155.26/driver-edit
 Content-Type: application/json
 
 {
-    "driverPassword" : "wwwwww",
+    "driverId" : "84",
     "driverConfirmPassword" : "wwwwww",
     "driverName" : "RobertSoCool",
     "driverMobile" : "7878787879",
@@ -94,7 +94,7 @@ Auth: d6d8c88477cfde1a3a462a4d4def198a
 Content-Type: application/json
 
 {
-    "customerId": "5"
+    "customerId": "117"
 }
 
 

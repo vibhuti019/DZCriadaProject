@@ -124,4 +124,30 @@
 
     }   
 
+    function companyChangePassword($arrayOfJson){
+        $companyId = $arrayOfJson["companyId"];
+        $companyPassword = $arrayOfJson["password"];
+        $companyConfirmPassword = $arrayOfJson["confirmPassword"];
+        
+        if($companyPassword == $companyConfirmPassword){
+            $companyPassword = encrypt2($companyPassword);
+        }
+        else{
+            $response["Data"] = "Invalid Data";
+            return json_encode($response);
+        }
+
+        $sql="UPDATE `CompanyDetails` SET `companyPassword` = '".$companyPassword."' WHERE `companyDetails`.`companyId` = ".$companyId." ";
+
+        $result = executeQuery($sql);
+
+        if($result){
+            $response["Data"] = $arrayOfJson;
+            return json_encode($response);
+        }
+
+        $response["Data"] = "Invalid Data";
+        
+        return json_encode($response);
+    }
 ?>  
