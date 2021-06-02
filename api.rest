@@ -309,3 +309,19 @@ Content-Type: application/json
 
 
 ####
+GET http://18.220.155.26/driver-change-password
+Content-Type: application/json
+
+{
+    "driverId" : 80,
+    "password" : "password",
+    "confirmPassword" : "password"
+}
+
+####
+GET http://18.220.155.26/customer-job
+Content-Type: application/json
+
+{
+    "customerId" : 1
+}

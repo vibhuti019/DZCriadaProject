@@ -89,6 +89,10 @@
             $array["driverName"] = $row["name"]; 
             $array["driverMobile"] = $row["mobile"];        
             $array["driverMail"] = $row["email"];
+            $array["driverPicture"] = $row["picture"];
+            $array["driverVehicleType"] = $row["vehicleType"];
+            $array["driverVehicleNumber"] = $row["vehicleNumber"];
+            $array["driverNRIC"] = $row["NRIC"];
             if(encrypt($array["driverMail"]) == $authToken){
                 $response["Data"] = $array;
                 return json_encode($response);
