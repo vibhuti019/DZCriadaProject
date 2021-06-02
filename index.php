@@ -32,6 +32,9 @@
     $path = explode('/',$_SERVER['PATH_INFO']);
     $requestedPath = $path[1];
     
+    if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+        die();
+    }
     
     if(preg_match("/driver-/i", $requestedPath)){
         // echo "Yes";

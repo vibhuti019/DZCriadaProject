@@ -249,8 +249,8 @@ GET http://18.220.155.26/driver-accept-job
 Content-Type: application/json
 
 {
-    "jobId" : 2074114871,
-    "driverId" : 7
+    "jobId" : 688561772,
+    "driverId" : 84
 }
 
 
@@ -324,4 +324,12 @@ Content-Type: application/json
 
 {
     "customerId" : 1
+}
+
+####
+OPTIONS http://18.220.155.26/customer-active-drivers
+Content-Type: application/json
+
+{
+    "customerId": "1"
 }
