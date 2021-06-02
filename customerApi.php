@@ -236,4 +236,31 @@
         
         return json_encode($response);
     }
+
+    function customerActiveDriver($arrayOfJson){
+        $customerId = $arrayOfJson["customerId"];
+        
+
+        $sql = "Select * from DriverDetails Where id IN (Select assignedDriver from Jobs Where customerId = ".$customerId." AND assignedDriver <> 'None');";
+    
+        $result = executeQuery($sql);
+
+        $i =0;
+        while($row = $result->fetch_assoc()){
+            $array["driverId"] = $row["id"];
+            $array["driverName"] = $row["name"]; 
+            $array["driverMobile"] = $row["mobile"];        
+            $array["driverMail"] = $row["email"];
+            $array["driverPicture"] = $row["picture"];
+            $array["driverVehicleType"] = $row["vehicleType"];
+            $array["driverVehicleNumber"] = $row["vehicleNumber"];
+            $array["driverNRIC"] = $row["NRIC"];
+            $responseData[$i] = $array;
+            $i = $i + 1;
+        }
+
+        $response["Data"] = $responseData;
+        
+        return json_encode($response);
+    }
 ?>

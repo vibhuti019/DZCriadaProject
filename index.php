@@ -111,6 +111,8 @@
                 echo companyChangePassword($arrayOfJSON);
                 break;
 
+            
+
             default:
                 die();
         }
@@ -152,6 +154,11 @@
             case "customer-change-password":
                 echo customerChangePassword($arrayOfJSON);
                 break;
+            
+            case "customer-active-drivers":
+                echo customerActiveDriver($arrayOfJSON);
+                break;
+            
 
             default:
                 die();
